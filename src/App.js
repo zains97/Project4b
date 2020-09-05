@@ -5,9 +5,10 @@ import useWebAnimations from "@wellyshen/use-web-animations";
 
 function App() {
 
-  const { ref, playState } = useWebAnimations({
+  const { ref, } = useWebAnimations({
     keyframes: {
       transform: "translateX(0%)",
+      // eslint-disable-next-line
       transform: "translateX(-200%)",
     },
     timing: {
