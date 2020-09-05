@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import useWebAnimations from "@wellyshen/use-web-animations";
+
 
 function App() {
+
+  const { ref, playState } = useWebAnimations({
+    keyframes: {
+      transform: "translateX(0%)",
+      transform: "translateX(-200%)",
+    },
+    timing: {
+      duration: 7000,
+      iterations: Infinity,
+      playbackRate: -2
+    },
+  })
+
+  const horse = require("../src/images/horse.gif")
+  const cactus = require("../src/images/cactus.png")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <div ref={ref} class="myhorse" id="myhorse">
+        <img src={horse} alt="running horse" id="horse" />
+      </div>
+      <div class="mycactus1">
+        <img src={cactus} alt="cactus1" id="cactus1" />
+      </div>
+      <div class="mycactus2">
+        <img src={cactus} alt="cactus2" id="cactus2" />
+      </div>
+    </div >
   );
 }
 
